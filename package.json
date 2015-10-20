@@ -1,0 +1,21 @@
+{
+  "name": "electron-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "justin.m.chase@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-prebuilt": "^0.34.0"
+  },
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-ui-router": "^0.2.15",
+    "angular-ui-router-styles": "0.0.6",
+    "bootstrap": "^3.3.5",
+    "jquery": "^2.1.4"
+  }
+}

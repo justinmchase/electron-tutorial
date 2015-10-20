@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="main">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Electron Tutorial!</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="styles/index.css">
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="node_modules/angular-ui-router-styles/ui-router-styles.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <i class="glyphicon glyphicon-circle-arrow-left" ng-click="back()"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+  	<div class="container">
+      <div class="btn-group pull-right">
+      </div>
+  		<div ui-view></div>
+  	</div>
+  </body>
+</html>

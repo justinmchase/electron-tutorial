@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1>Electron Tutorial</h1>
+  <p>Welcome to the interactive electron tutorial! Start with the pitch to understand why you would want to use electron or skip ahead to the tutorials.</p>
+  <p><a class="btn btn-primary btn-lg" href="#/pitch" role="button" ng-click="navigate({state:'pitch'})">The Pitch</a></p>
+</div>
+
+<div class="panel panel-info" ng-repeat="category in categories">
+	<div class="panel-heading">{{category.name}}</div>
+	<div class="list-group" ng-repeat="topic in category.topics">
+		<a class="list-group-item" href="#/{{topic.state}}" ng-click="navigate(topic)">
+			<span class="glyphicon" ng-class="{'glyphicon-unchecked': !topic.visited, 'glyphicon-check': topic.visited }"></span> 
+			{{topic.name}}
+		</a>
+	</div>
+</div>
