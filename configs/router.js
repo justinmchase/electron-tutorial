@@ -18,6 +18,14 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				css: 'styles/pitch.css'
 			}
 		})
+		.state('setup', {
+			url: '/setup', 
+			controller: 'SetupController',
+			templateUrl: path.join(__dirname, '../views/setup.html'),
+			data: {
+				css: 'styles/setup.css'
+			}
+		})
 }
 
 module.exports = routerConfig;

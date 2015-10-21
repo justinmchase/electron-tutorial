@@ -8,6 +8,7 @@ angular
 	.value('$', window.jQuery)
 	.controller('PitchController', require('./controllers/pitch'))
 	.controller('MainController', require('./controllers/main'))
+	.controller('SetupController', require('./controllers/setup'))
 	.config(require('./configs/router'))
 	.run(require('./configs/run'));
 	
