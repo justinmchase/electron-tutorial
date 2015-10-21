@@ -34,6 +34,14 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				css: 'styles/new.css'
 			}
 		})
+		.state('angular', {
+			url: '/angular',
+			controller: 'AngularController',
+			templateUrl: path.join(__dirname, '../views/angular.html'),
+			data: {
+				css: 'styles/angular.css'
+			}
+		})
 }
 
 module.exports = routerConfig;

@@ -1,0 +1,62 @@
+
+<div class="container">
+
+	<div class="page-header">
+	  <h1>Leveraging Angular in your App</h1>
+	</div>
+	<p>This tutorial demonstrates how to integrate Angular but the idea is to show how any 3rd party library can be leveraged similar to how it might be done in a normal web application.</p>
+
+	<h2>Integrating Angular</h2>
+	<p>First we need to get angular from npm.</p>
+
+<pre>$ npm install angular</pre>
+
+	<p>Next we need to add references to angular scripts in our html.</p>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">index.html</div>
+		<div class="panel-body">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html <strong>ng-app="myapp"</strong>&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title>Hello World!&lt;/title&gt;
+    <strong>&lt;script src="node_modules/angular/angular.js"&gt;&lt;/script&gt;</strong>
+    <strong>&lt;script src="index.js"&gt;&lt;/script&gt;</strong>
+  &lt;/head&gt;
+  &lt;body <strong>ng-controller="VersionController"</strong>&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    We are using Node.js <strong>{{nodeVersion}}</strong>
+    and Electron <strong>{{electronVersion}}</strong>.
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+
+	<p>Next we add the script that initializes angular.</p>
+
+<pre>$ touch index.js</pre>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">index.js</div>
+		<div class="panel-body">
+<pre>angular
+  .module('myapp', [])
+  .controller('VersionController', function ($scope) {
+    $scope.nodeVersion = process.version;
+    $scope.electronVersion = process.versions['electron'];
+  });</pre>
+		</div>
+	</div>
+
+	<p>Run once again to see the app running through Angular.</p>
+
+<pre>$ electron .</pre>
+
+	<div class="container">
+		<img src="images/basic-app.png">
+	</div>
+
+	<h2> </h2>
+
+</div>
