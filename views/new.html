@@ -1,0 +1,72 @@
+
+<div class="container">
+
+	<div class="page-header">
+	  <h1>Creating an Electron project</h1>
+	</div>
+	<p>This tutorial assumes you will be using bash to run commands on any platform.</p>
+
+	<h2>Minimal application structure</h2>
+	<p>To create an electron application you will need at least 3 files:</p>
+
+<pre>$ mkdir myapp &amp;&amp; cd myapp
+$ touch main.js
+$ touch index.html
+$ touch package.json</pre>
+
+	<h2>File Contents</h2>
+	<div class="panel panel-default">
+		<div class="panel-heading">package.json</div>
+		<div class="panel-body">
+<pre>{
+  "name"    : "myapp",
+  "version" : "0.1.0",
+  "main"    : "main.js"
+}</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">main.js</div>
+		<div class="panel-body">
+<pre>var app = require('app');
+var BrowserWindow = require('browser-window');
+var mainWindow = null;
+
+app.on('ready', function() {
+  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.on('closed', function() {
+    mainWindow = null;
+  });
+});</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">index.html</div>
+		<div class="panel-body">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title>Hello World!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    We are using Node.js &lt;script&gt;document.write(process.version)&lt;/script&gt;
+    and Electron &lt;script&gt;document.write(process.versions['electron'])&lt;/script&gt;.
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+
+	<h2>Getting and Running Electron</h2>
+<pre>$ npm install electron-prebuilt --save-dev
+$ npm install electron-prebuilt -g
+$ electron .
+</pre>
+
+	<h2> </h2>
+
+</div>

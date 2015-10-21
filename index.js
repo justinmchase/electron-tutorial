@@ -9,6 +9,7 @@ angular
 	.controller('PitchController', require('./controllers/pitch'))
 	.controller('MainController', require('./controllers/main'))
 	.controller('SetupController', require('./controllers/setup'))
+	.controller('NewController', require('./controllers/new'))
 	.config(require('./configs/router'))
 	.run(require('./configs/run'));
 	

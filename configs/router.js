@@ -26,6 +26,14 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				css: 'styles/setup.css'
 			}
 		})
+		.state('new', {
+			url: '/new', 
+			controller: 'NewController',
+			templateUrl: path.join(__dirname, '../views/new.html'),
+			data: {
+				css: 'styles/new.css'
+			}
+		})
 }
 
 module.exports = routerConfig;
