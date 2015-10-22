@@ -10,6 +10,7 @@ angular
 	.controller('MainController', require('./controllers/main'))
 	.controller('SetupController', require('./controllers/setup'))
 	.controller('NewController', require('./controllers/new'))
+	.controller('AppController', require('./controllers/app'))
 	.controller('AngularController', require('./controllers/angular'))
 	.controller('BrowserWindowController', require('./controllers/browserWindow'))
 	.controller('DialogController', require('./controllers/dialog'))

@@ -18,8 +18,17 @@ dialog.showOpenDialog({
     { name: 'All Files', extensions: ['*'] }
   ]
 }, function (files) {
-  console.log(require('util').inspect(files));
+  dialog.showMessageBox({
+    type: 'info',
+    title: 'Selected Files',
+    buttons: ['Ok'],
+    message: 'The files you selected were:',
+    detail: files.join('\n')
+  });
 });</pre>
+			<div class="container">
+				<button class="btn btn-default" type="submit" ng-click="openFile()">Open Files</button>
+			</div>
 		</div>
 	</div>
 

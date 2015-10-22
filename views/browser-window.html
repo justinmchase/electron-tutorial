@@ -10,6 +10,7 @@
 		<div class="panel-heading">example</div>
 		<div class="panel-body">
 <pre>var BrowserWindow = require('browser-window');
+var win = new BrowserWindow({ width: 800, height: 600 });
 win.on('closed', function() {
   win = null;
 });

@@ -13,6 +13,34 @@
 app.on('window-all-closed', function() {
   app.quit();
 });</pre>
+		<div class="container">
+			<button class="btn btn-default" type="submit" ng-click="quit()">Quit!</button>
+		</div>
+		</div>
+	</div>
+
+		<div class="panel panel-primary">
+		<div class="panel-heading">example</div>
+		<div class="panel-body">
+<pre>var app = remote.require('app');
+app.setUserTasks([
+  { 
+    title: 'Example!',
+    program: process.execPath,
+    arguments: '',
+    description: 'Just an example of a user task.'
+  },
+  {
+    title: 'Another Task',
+    program: process.execPath,
+    arguments: '',
+    description: 'Another example of a user task.'
+  }
+]);</pre>
+		<div class="container">
+			<button class="btn btn-default" type="submit" ng-click="setUserTasks()">Set User Tasks</button>
+			<button class="btn btn-default" type="submit" ng-click="clearUserTasks()">Clear User Tasks</button>
+		</div>
 		</div>
 	</div>
 
