@@ -58,6 +58,14 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				css: 'styles/browser-window.css'
 			}
 		})
+		.state('dialog', {
+			url: '/dialog',
+			controller: 'DialogController',
+			templateUrl: path.join(__dirname, '../views/dialog.html'),
+			data: {
+				css: 'styles/dialog.css'
+			}
+		})
 }
 
 module.exports = routerConfig;
