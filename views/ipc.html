@@ -1,0 +1,85 @@
+
+<div class="container">
+
+	<div class="page-header">
+	  <h1><code>ipc</code> module</h1>
+	  <h4>A <strong>main</strong> and <strong>render</strong> process module that be used to communicate between processes.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">main.js</div>
+		<div class="panel-body">
+<pre>var app = require('app');
+var BrowserWindow = require('browser-window');
+var globalShortcut = require('global-shortcut');
+<strong>var ipc = require('ipc');</strong>
+var mainWindow = null;
+
+
+app.on('ready', function() {
+  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.on('closed', function() {
+    mainWindow = null;
+  });
+
+  <strong>ipc.on('message', function (event, arg) {
+    console.log('from: ' + event.sender.getId());
+    console.log('message: ' + arg);
+  });</strong>
+
+  globalShortcut.register('ctrl+x', function() {
+    <strong>mainWindow.webContents.send('message', 'ctrl+x');</strong>
+  });
+});</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">index.js</div>
+		<div class="panel-body">
+<pre><strong>var ipc = require('ipc');</strong>
+angular
+  .module('myapp', [])
+  .controller('VersionController', function ($scope) {
+    $scope.nodeVersion = process.version;
+    $scope.electronVersion = process.versions['electron'];
+    <strong>$scope.pressCount = 0;</strong>
+
+    <strong>ipc.on('message', function (arg) {
+      $scope.pressCount++;
+      $scope.$apply();
+      ipc.send('message', 'message processed successfully!');
+    });</strong>
+  });</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">index.html</div>
+		<div class="panel-body">
+<pre ng-non-bindable>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title>Hello World!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;We are using Node.js &lt;script&gt;document.write(process.version)&lt;/script&gt;
+    and Electron &lt;script&gt;document.write(process.versions['electron'])&lt;/script&gt;.&lt;/p&gt;
+    <strong>&lt;p&gt;Ctrl+X pressed: {{pressCount}} times.&lt;/p&gt;</strong>
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Methods</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>ipc.on(channel, callback)</code></li>
+			<li class="list-group-item"><code>ipc.send(channel[, arg1][, arg2][, ...])</code></li>
+			<li class="list-group-item"><code>ipc.sendToHost(channel[, arg1][, arg2][, ...])</code></li>
+		</ul>
+	</div>
+</div>

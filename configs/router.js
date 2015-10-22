@@ -70,6 +70,10 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			url: '/global-shortcut',
 			templateUrl: path.join(__dirname, '../views/global-shortcut.html')
 		})
+		.state('ipc', {
+			url: '/ipc',
+			templateUrl: path.join(__dirname, '../views/ipc.html')
+		})
 }
 
 module.exports = routerConfig;
