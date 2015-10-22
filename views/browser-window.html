@@ -1,0 +1,170 @@
+
+<div class="container">
+
+	<div class="page-header">
+	  <h1><code>browser-window</code> module</h1>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">main.js</div>
+		<div class="panel-body">
+	<p>The <code>BrowserWindow</code> is a <strong>main process</strong> only class gives you the ability to create a browser window. For example:</p>
+<pre>var BrowserWindow = require('browser-window');
+win.on('closed', function() {
+  win = null;
+});
+
+win.loadUrl('https://github.com');
+win.show();</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Class: BrowserWindow</div>
+		<p> </p>
+		<div class="container">
+			<p><code>new BrowserWindow(options)</code></p>
+			<p><code>options</code> properties:</p>
+		</div>
+		<ul class="list">
+			<li><code>width</code></li>
+			<li><code>height</code></li>
+			<li><code>x</code></li>
+			<li><code>y</code></li>
+			<li><code>center</code></li>
+			<li><code>min-width</code></li>
+			<li><code>min-height</code></li>
+			<li><code>max-width</code></li>
+			<li><code>max-height</code></li>
+			<li><code>resizable</code></li>
+			<li><code>always-on-top</code></li>
+			<li><code>fullscreen</code></li>
+			<li><code>skip-taskbar</code></li>
+			<li><code>kiosk</code></li>
+			<li><code>title</code></li>
+			<li><code>icon</code></li>
+			<li><code>show</code></li>
+			<li><code>frame</code></li>
+			<li><code>accept-first-mouse</code></li>
+			<li><code>disable-auto-hide-cursor</code></li>
+			<li><code>auto-hide-menu-bar</code></li>
+			<li><code>enable-larger-than-screen</code></li>
+			<li><code>dark-theme</code></li>
+			<li><code>transparent</code></li>
+			<li><code>type</code></li>
+			<li><code>standard-window</code></li>
+			<li><code>title-bar-style</code></li>
+			<li><code>web-preferences</code></li>
+		</ul>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Properties</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>win.webContents</code></li>
+			<li class="list-group-item"><code>win.id</code></li>
+
+		</ul>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Events</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>'page-title-updated'</code></li>
+			<li class="list-group-item"><code>'close'</code></li>
+			<li class="list-group-item"><code>'closed'</code></li>
+			<li class="list-group-item"><code>'unresponsive'</code></li>
+			<li class="list-group-item"><code>'responsive'</code></li>
+			<li class="list-group-item"><code>'blur'</code></li>
+			<li class="list-group-item"><code>'focus'</code></li>
+			<li class="list-group-item"><code>'maximize'</code></li>
+			<li class="list-group-item"><code>'unmaximize'</code></li>
+			<li class="list-group-item"><code>'minimize'</code></li>
+			<li class="list-group-item"><code>'restore'</code></li>
+			<li class="list-group-item"><code>'resize'</code></li>
+			<li class="list-group-item"><code>'move'</code></li>
+			<li class="list-group-item"><code>'moved'</code></li>
+			<li class="list-group-item"><code>'enter-full-screen'</code></li>
+			<li class="list-group-item"><code>'leave-full-screen'</code></li>
+			<li class="list-group-item"><code>'enter-html-full-screen'</code></li>
+			<li class="list-group-item"><code>'leave-html-full-screen'</code></li>
+			<li class="list-group-item"><code>'app-command'</code></li>
+
+		</ul>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Methods</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>BrowserWindow.getAllWindows()</code></li>
+			<li class="list-group-item"><code>BrowserWindow.getFocusedWindow()</code></li>
+			<li class="list-group-item"><code>BrowserWindow.fromWebContents(webContents)</code></li>
+			<li class="list-group-item"><code>BrowserWindow.fromId(id)</code></li>
+			<li class="list-group-item"><code>BrowserWindow.addDevToolsExtension(path)</code></li>
+			<li class="list-group-item"><code>BrowserWindow.removeDevToolsExtension(name)</code></li>
+			<li class="list-group-item"><code>win.destroy()</code></li>
+			<li class="list-group-item"><code>win.close()</code></li>
+			<li class="list-group-item"><code>win.focus()</code></li>
+			<li class="list-group-item"><code>win.isFocused()</code></li>
+			<li class="list-group-item"><code>win.show()</code></li>
+			<li class="list-group-item"><code>win.showInactive()</code></li>
+			<li class="list-group-item"><code>win.hide()</code></li>
+			<li class="list-group-item"><code>win.isVisible()</code></li>
+			<li class="list-group-item"><code>win.maximize()</code></li>
+			<li class="list-group-item"><code>win.unmaximize()</code></li>
+			<li class="list-group-item"><code>win.isMaximized()</code></li>
+			<li class="list-group-item"><code>win.minimize()</code></li>
+			<li class="list-group-item"><code>win.restore()</code></li>
+			<li class="list-group-item"><code>win.isMinimized()</code></li>
+			<li class="list-group-item"><code>win.setFullScreen(flag)</code></li>
+			<li class="list-group-item"><code>win.isFullScreen()</code></li>
+			<li class="list-group-item"><code>win.setAspectRatio(aspectRatio[, extraSize])</code></li>
+			<li class="list-group-item"><code>win.setBounds(options)</code></li>
+			<li class="list-group-item"><code>win.getBounds()</code></li>
+			<li class="list-group-item"><code>win.setSize(width, height)</code></li>
+			<li class="list-group-item"><code>win.getSize()</code></li>
+			<li class="list-group-item"><code>win.setContentSize(width, height)</code></li>
+			<li class="list-group-item"><code>win.getContentSize()</code></li>
+			<li class="list-group-item"><code>win.setMinimumSize(width, height)</code></li>
+			<li class="list-group-item"><code>win.getMinimumSize()</code></li>
+			<li class="list-group-item"><code>win.setMaximumSize(width, height)</code></li>
+			<li class="list-group-item"><code>win.getMaximumSize()</code></li>
+			<li class="list-group-item"><code>win.setResizable(resizable)</code></li>
+			<li class="list-group-item"><code>win.isResizable()</code></li>
+			<li class="list-group-item"><code>win.setAlwaysOnTop(flag)</code></li>
+			<li class="list-group-item"><code>win.isAlwaysOnTop()</code></li>
+			<li class="list-group-item"><code>win.center()</code></li>
+			<li class="list-group-item"><code>win.setPosition(x, y)</code></li>
+			<li class="list-group-item"><code>win.getPosition()</code></li>
+			<li class="list-group-item"><code>win.setTitle(title)</code></li>
+			<li class="list-group-item"><code>win.getTitle()</code></li>
+			<li class="list-group-item"><code>win.flashFrame(flag)</code></li>
+			<li class="list-group-item"><code>win.setSkipTaskbar(skip)</code></li>
+			<li class="list-group-item"><code>win.setKiosk(flag)</code></li>
+			<li class="list-group-item"><code>win.isKiosk()</code></li>
+			<li class="list-group-item"><code>win.setRepresentedFilename(filename)</code></li>
+			<li class="list-group-item"><code>win.getRepresentedFilename()</code></li>
+			<li class="list-group-item"><code>win.setDocumentEdited(edited)</code></li>
+			<li class="list-group-item"><code>win.IsDocumentEdited()</code></li>
+			<li class="list-group-item"><code>win.focusOnWebView()</code></li>
+			<li class="list-group-item"><code>win.blurWebView()</code></li>
+			<li class="list-group-item"><code>win.capturePage([rect, ]callback)</code></li>
+			<li class="list-group-item"><code>win.print([options])</code></li>
+			<li class="list-group-item"><code>win.printToPDF(options, callback)</code></li>
+			<li class="list-group-item"><code>win.loadUrl(url[, options])</code></li>
+			<li class="list-group-item"><code>win.reload()</code></li>
+			<li class="list-group-item"><code>win.setMenu(menu)</code></li>
+			<li class="list-group-item"><code>win.setProgressBar(progress)</code></li>
+			<li class="list-group-item"><code>win.setOverlayIcon(overlay, description)</code></li>
+			<li class="list-group-item"><code>win.setThumbarButtons(buttons)</code></li>
+			<li class="list-group-item"><code>win.showDefinitionForSelection()</code></li>
+			<li class="list-group-item"><code>win.setAutoHideMenuBar(hide)</code></li>
+			<li class="list-group-item"><code>win.isMenuBarAutoHide()</code></li>
+			<li class="list-group-item"><code>win.setMenuBarVisibility(visible)</code></li>
+			<li class="list-group-item"><code>win.isMenuBarVisible()</code></li>
+			<li class="list-group-item"><code>win.setVisibleOnAllWorkspaces(visible)</code></li>
+			<li class="list-group-item"><code>win.isVisibleOnAllWorkspaces()</code></li>
+		</ul>
+	</div>
+
+</div>

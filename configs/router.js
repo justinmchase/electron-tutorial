@@ -50,6 +50,14 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				css: 'styles/app.css'
 			}
 		})
+		.state('browser-window', {
+			url: '/browser-window',
+			controller: 'BrowserWindowController',
+			templateUrl: path.join(__dirname, '../views/browser-window.html'),
+			data: {
+				css: 'styles/browser-window.css'
+			}
+		})
 }
 
 module.exports = routerConfig;
