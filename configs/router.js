@@ -68,11 +68,15 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 		})
 		.state('global-shortcut', {
 			url: '/global-shortcut',
-			templateUrl: path.join(__dirname, '../views/global-shortcut.html')
+			templateUrl: path.join(__dirname, '../views/global-shortcut.html'),
 		})
 		.state('ipc', {
 			url: '/ipc',
-			templateUrl: path.join(__dirname, '../views/ipc.html')
+			templateUrl: path.join(__dirname, '../views/ipc.html'),
+		})
+		.state('menus', {
+			url: '/menus',
+			templateUrl: path.join(__dirname, '../views/menus.html'),
 		})
 }
 
