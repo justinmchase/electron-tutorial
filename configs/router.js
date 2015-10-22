@@ -66,6 +66,10 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				css: 'styles/dialog.css'
 			}
 		})
+		.state('global-shortcut', {
+			url: '/global-shortcut',
+			templateUrl: path.join(__dirname, '../views/global-shortcut.html')
+		})
 }
 
 module.exports = routerConfig;
