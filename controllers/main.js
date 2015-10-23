@@ -29,8 +29,7 @@ function MainController($scope, $state) {
 					{ name: 'menus', state: 'menus' },
 					{ name: 'power', state: 'power' },
 					{ name: 'clipboard', state: 'clipboard' },
-					{ name: 'screen', state: 'screen' },
-					{ name: 'shell', state: 'shell' },
+					{ name: 'other', state: 'other' },
 				]
 			},
 			{

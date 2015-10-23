@@ -94,6 +94,10 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			templateUrl: path.join(__dirname, '../views/clipboard.html'),
 			controller: 'ClipboardController'
 		})
+		.state('other', {
+			url: '/other',
+			templateUrl: path.join(__dirname, '../views/other.html')
+		})
 }
 
 module.exports = routerConfig;
