@@ -84,6 +84,11 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			templateUrl: path.join(__dirname, '../views/power.html'),
 			controller: 'PowerController'
 		})
+		.state('tray', {
+			url: '/tray',
+			templateUrl: path.join(__dirname, '../views/tray.html'),
+			controller: 'TrayController'
+		})
 }
 
 module.exports = routerConfig;

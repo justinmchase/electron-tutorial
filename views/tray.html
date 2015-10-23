@@ -1,0 +1,51 @@
+
+<div class="container">
+
+	<div class="page-header">
+		<h1><code>tray</code> module</h1>
+		<h4>A <strong>main process</strong> api for monitoring power state changes.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">example</div>
+		<div class="panel-body">
+<pre>var path = require('path');
+var Tray = require('tray');
+appIcon = new Tray(path.join(__dirname, '../images/beer.png'));
+appIcon.setToolTip('Buy me a beer!');</pre>
+			<div class="container">
+				<button class="btn btn-default" type="submit" ng-click="show()">Show Tray</button>
+				<button class="btn btn-default" type="submit" ng-click="hide()">Hide Tray</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Methods</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>Tray.destroy()</code></li>
+			<li class="list-group-item"><code>Tray.setImage(image)</code></li>
+			<li class="list-group-item"><code>Tray.setPressedImage(image)</code></li>
+			<li class="list-group-item"><code>Tray.setToolTip(toolTip)</code></li>
+			<li class="list-group-item"><code>Tray.setTitle(title)</code></li>
+			<li class="list-group-item"><code>Tray.setHighlightMode(highlight)</code></li>
+			<li class="list-group-item"><code>Tray.displayBalloon(options)</code></li>
+			<li class="list-group-item"><code>Tray.popUpContextMenu([position])</code></li>
+			<li class="list-group-item"><code>Tray.setContextMenu(menu)</code></li>
+		</ul>
+	</div>
+
+		<div class="panel panel-success">
+		<div class="panel-heading">events</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>'clicked'</code></li>
+			<li class="list-group-item"><code>'right-clicked'</code></li>
+			<li class="list-group-item"><code>'double-clicked'</code></li>
+			<li class="list-group-item"><code>'balloon-show'</code></li>
+			<li class="list-group-item"><code>'balloon-clicked'</code></li>
+			<li class="list-group-item"><code>'balloon-closed'</code></li>
+			<li class="list-group-item"><code>'drop-files'</code></li>
+		</ul>
+	</div>
+
+</div>

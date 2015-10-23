@@ -8,25 +8,31 @@
 	<div class="panel panel-primary">
 		<div class="panel-heading">example</div>
 		<div class="panel-body">
-<pre>var Menu = require('menu');
+<pre>
+var path = require('path');
+var Tray = require('tray');
+var Menu = require('menu');
 var template = [
   {
-    label: 'Hello World!',
-    submenu: [
-      {
-        label: 'To Console',
-        accerator: 'CmdOrCtrl+H',
-        click: function (item, focusedWindow) {
-          console.log('Hello World!');
-        }
-      }
-    ]
+    label: 'Surly Darkness',
+    click: function (item, focusedWindow) {
+      console.log('Surly it is!');
+    }
+  },
+  {
+    label: 'More Surly Darkness',
+    click: function (item, focusedWindow) {
+      console.log('Yay!');
+    }
   }
 ];
-menu = Menu.buildFromTemplate(template);
-Menu.setApplicationMenu(menu);</pre>
+var menu = Menu.buildFromTemplate(template);
+var tray = new Tray(path.join(__dirname, '../images/beer.png'));
+tray.setToolTip('Buy me a beer!');
+tray.setContextMenu(menu);</pre>
 			<div class="container">
-				<button class="btn btn-default" type="submit" ng-click="setMenu()">Set Menu</button>
+				<button class="btn btn-default" type="submit" ng-click="show()">Show Menu</button>
+				<button class="btn btn-default" type="submit" ng-click="hide()">Hide Menu</button>
 			</div>
 		</div>
 	</div>

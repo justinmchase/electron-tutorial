@@ -1,5 +1,7 @@
 var path = require('path');
 
+if(localStorage) localStorage.clear();
+
 window.jQuery = require('jquery');
 require('bootstrap');
 
@@ -16,6 +18,7 @@ angular
 	.controller('DialogController', require('./controllers/dialog'))
 	.controller('MenusController', require('./controllers/menus'))
 	.controller('PowerController', require('./controllers/power'))
+	.controller('TrayController', require('./controllers/tray'))
 	.config(require('./configs/router'))
 	.run(require('./configs/run'));
 	
