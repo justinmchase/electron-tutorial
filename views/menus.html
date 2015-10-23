@@ -1,1 +1,47 @@
-hi
+<div class="container">
+
+	<div class="page-header">
+		<h1><code>menu</code> module</h1>
+		<h4>A <strong>main process</strong> api for showing native system dialogs, such as opening files or alerting, so web applications can deliver the same user experience as native applications.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">example</div>
+		<div class="panel-body">
+<pre>var Menu = require('menu');
+var template = [
+  {
+    label: 'Hello World!',
+    submenu: [
+      {
+        label: 'To Console',
+        accerator: 'CmdOrCtrl+H',
+        click: function (item, focusedWindow) {
+          console.log('Hello World!');
+        }
+      }
+    ]
+  }
+];
+menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);</pre>
+			<div class="container">
+				<button class="btn btn-default" type="submit" ng-click="setMenu()">Set Menu</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Class: <code>new Menu()</code></div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>Menu.setApplicationMenu(menu)</code></li>
+			<li class="list-group-item"><code>Menu.sendActionToFirstResponder(action)</code></li>
+			<li class="list-group-item"><code>Menu.buildFromTemplate(template)</code></li>
+			<li class="list-group-item"><code>Menu.popup([browserWindow, x, y])</code></li>
+			<li class="list-group-item"><code>Menu.append(menuItem)</code></li>
+			<li class="list-group-item"><code>Menu.insert(pos, menuItem)</code></li>
+			<li class="list-group-item"><code>Menu.items()</code></li>
+
+		</ul>
+	</div>
+</div>

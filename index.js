@@ -14,6 +14,7 @@ angular
 	.controller('AngularController', require('./controllers/angular'))
 	.controller('BrowserWindowController', require('./controllers/browserWindow'))
 	.controller('DialogController', require('./controllers/dialog'))
+	.controller('MenusController', require('./controllers/menus'))
 	.config(require('./configs/router'))
 	.run(require('./configs/run'));
 	

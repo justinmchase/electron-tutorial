@@ -77,6 +77,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 		.state('menus', {
 			url: '/menus',
 			templateUrl: path.join(__dirname, '../views/menus.html'),
+			controller: 'MenusController',
 		})
 }
 
