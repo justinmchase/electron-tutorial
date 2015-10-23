@@ -19,6 +19,7 @@ angular
 	.controller('MenusController', require('./controllers/menus'))
 	.controller('PowerController', require('./controllers/power'))
 	.controller('TrayController', require('./controllers/tray'))
+	.controller('ClipboardController', require('./controllers/clipboard'))
 	.config(require('./configs/router'))
 	.run(require('./configs/run'));
 	

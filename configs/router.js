@@ -89,6 +89,11 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			templateUrl: path.join(__dirname, '../views/tray.html'),
 			controller: 'TrayController'
 		})
+		.state('clipboard', {
+			url: '/clipboard',
+			templateUrl: path.join(__dirname, '../views/clipboard.html'),
+			controller: 'ClipboardController'
+		})
 }
 
 module.exports = routerConfig;
