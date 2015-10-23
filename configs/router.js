@@ -79,6 +79,11 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			templateUrl: path.join(__dirname, '../views/menus.html'),
 			controller: 'MenusController',
 		})
+		.state('power', {
+			url: '/power',
+			templateUrl: path.join(__dirname, '../views/power.html'),
+			controller: 'PowerController'
+		})
 }
 
 module.exports = routerConfig;

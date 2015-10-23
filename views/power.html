@@ -1,0 +1,61 @@
+
+<div class="container">
+
+	<div class="page-header">
+		<h1><code>power-monitor</code> module</h1>
+		<h4>A <strong>main process</strong> api for monitoring power state changes.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">example</div>
+		<div class="panel-body">
+<pre>var powerMonitor = require('power-monitor')
+powerMonitor.on('on-ac', function() {
+  console.log('The machine has been plugged into a power source.');
+});
+powerMonitor.on('on-battery', function () {
+  console.log('The machine has been unplugged from a power source.');
+});</pre>
+			<div class="container">
+				<button class="btn btn-default" type="submit" ng-click="monitorPower()">Monitor Power</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">events</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>'suspend'</code></li>
+			<li class="list-group-item"><code>'resume'</code></li>
+			<li class="list-group-item"><code>'on-ac'</code></li>
+			<li class="list-group-item"><code>'on-battery'</code></li>
+		</ul>
+	</div>
+
+
+	<div class="page-header">
+		<h1><code>power-save-blocker</code> module</h1>
+		<h4>A <strong>main process</strong> api for keeping the system from entering low-power (sleep) mode and thus allowing the app to keep the system and screen active.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">example</div>
+		<div class="panel-body">
+<pre>var powerSaveBlocker = require('power-save-blocker');
+
+var id = powerSaveBlocker.start('prevent-display-sleep');
+console.log(powerSaveBlocker.isStarted(id));
+
+powerSaveBlocker.stop(id);</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Methods</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>powerSaveBlocker.start(type)</code></li>
+			<li class="list-group-item"><code>powerSaveBlocker.stop(id)</code></li>
+			<li class="list-group-item"><code>powerSaveBlocker.isStarted(id</code></li>
+		</ul>
+	</div>
+</div>
