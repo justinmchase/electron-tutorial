@@ -1,0 +1,99 @@
+<div class="container">
+
+	<div class="page-header">
+		<h1>Deployment</h1>
+		<h4>Deployment consists packaging your code and electron then building a platform specific installer.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">Install</div>
+		<div class="panel-body">
+			<p>First we will install a couple of things we will need.</p>
+<pre>$ npm install electron-packager --save-dev
+$ npm install electron-builder --save-dev
+$ npm install gulp -g</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">gulpfile.js</div>
+		<div class="panel-body">
+			<p>Next we will create a gulp file which will copy our application files to the release folder.</p>
+<pre>var gulp = require('gulp'),
+	path = require('path');
+
+var appFiles = [
+    'package.json',
+    '*.js',
+    'index.html'
+];
+var addonFiles = [
+	'build/Debug/addon.node'
+];
+var angularFiles = [
+	'node_modules/angular/**/*'
+]
+
+var releaseDir = 'release';
+var releaseAppDir = path.join(releaseDir, 'app');
+var releaseAddonDir = path.join(releaseAppDir, 'build', 'Debug');
+var releaseAngularDir = path.join(releaseAppDir, 'node_modules', 'angular');
+
+gulp.task('copy-app', function () {
+	return gulp
+		.src(appFiles)
+		.pipe(gulp.dest(releaseAppDir));
+});
+
+gulp.task('copy-addon', function () {
+	return gulp
+		.src(addonFiles)
+		.pipe(gulp.dest(releaseAddonDir));
+})
+
+gulp.task('copy-angular', function () {
+	return gulp
+		.src(angularFiles)
+		.pipe(gulp.dest(releaseAngularDir));
+})
+ 
+gulp.task('release', ['copy-app', 'copy-addon', 'copy-angular']);
+gulp.task('default', ['release']);</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">gulpfile.js</div>
+		<div class="panel-body">
+			<p>Next we will create a gulp file which will copy our application files to the release folder.</p>
+<pre>{
+  "macos" : {
+    "title": "myapp",
+    "background": "assets/macos/installer.png",
+    "icon": "assets/macos/mount.icns",
+    "icon-size": 80,
+    "contents": [
+      { "x": 438, "y": 344, "type": "link", "path": "/Applications" },
+      { "x": 192, "y": 344, "type": "file" }
+    ]
+  },
+  "win" : {
+    "title" : "myapp",
+    "icon" : "assets/win/jason.ico"
+  }
+}</pre>
+		</div>
+	</div>
+
+		<div class="panel panel-primary">
+		<div class="panel-heading">Building</div>
+		<div class="panel-body">
+			<p>Finally we will run the tools to generate a platform specific deliverable.</p>
+<pre>$ gulp
+$ export PATH=$PATH:./node_modules/.bin
+$ electron-packager ./release/app myapp --platform=$platform --arch=x64 --version=0.34.0 --out=./release/$platform
+$ electron-builder ./release/$platform/myapp-$platform --platform=$platform --config=config.json --out=./release/$platform</pre>
+		</div>
+	</div>
+
+</div>

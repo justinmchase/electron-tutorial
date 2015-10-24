@@ -37,7 +37,6 @@ function MainController($scope, $state) {
 				topics: [
 					{ name: 'Debugging', state: 'debugging' },
 					{ name: 'Native Addons', state: 'native' },
-					{ name: 'Packaging', state: 'packaging' },
 					{ name: 'Deployment', state: 'deployment' },
 					{ name: 'Auto Updates', state: 'updates' },
 				]

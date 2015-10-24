@@ -2,3 +2,8 @@
 .media-object {
 	width: 100px;
 }
+
+.media-object.small-logo {
+	width: 64px;
+	margin-left: 34px;
+}

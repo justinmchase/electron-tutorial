@@ -5,8 +5,8 @@ function TrayController($scope) {
 	$scope.show = function () {
 		var remote = require('remote');
 		var Tray = remote.require('tray');
-		$scope.appIcon = new Tray(path.join(__dirname, '../images/beer.png'));
-		$scope.appIcon.setToolTip('Buy me a beer!');
+		$scope.appIcon = new Tray(path.join(__dirname, '../images/jason.png'));
+		$scope.appIcon.setToolTip('Jason Bock!');
 	}
 
 	$scope.hide = function () {

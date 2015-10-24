@@ -107,6 +107,10 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			templateUrl: path.join(__dirname, '../views/native.html'),
 			controller: 'NativeController'
 		})
+		.state('deployment', {
+			url: '/deployment',
+			templateUrl: path.join(__dirname, '../views/deployment.html'),
+		})
 }
 
 module.exports = routerConfig;

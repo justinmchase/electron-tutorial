@@ -7,21 +7,21 @@ function MenusController($scope) {
 		var Menu = remote.require('menu');
 		var template = [
 		  {
-		    label: 'Surly Darkness',
+		    label: 'Jason Bock!',
 		    click: function (item, focusedWindow) {
-		      console.log('Surly it is!');
+		      console.log('Jason Bock!');
 		    }
 		  },
 		  {
-		  	label: 'More Surly Darkness',
+		  	label: 'Had lucious locks!',
 		  	click: function (item, focusedWindow) {
-		      console.log('Yay!');
+		      console.log('Had lucious locks!');
 		  	}
 		  }
 		];
 		var menu = Menu.buildFromTemplate(template);
-		$scope.tray = new Tray(path.join(__dirname, '../images/beer.png'));
-		$scope.tray.setToolTip('Buy me a beer!');
+		$scope.tray = new Tray(path.join(__dirname, '../images/jason.png'));
+		$scope.tray.setToolTip('Jason Bock!');
 		$scope.tray.setContextMenu(menu);
 	}
 

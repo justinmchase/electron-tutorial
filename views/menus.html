@@ -14,21 +14,21 @@ var Tray = require('tray');
 var Menu = require('menu');
 var template = [
   {
-    label: 'Surly Darkness',
+    label: 'Jason Bock!',
     click: function (item, focusedWindow) {
-      console.log('Surly it is!');
+      console.log('Jason Bock!');
     }
   },
   {
-    label: 'More Surly Darkness',
+    label: 'Had lucious locks!',
     click: function (item, focusedWindow) {
-      console.log('Yay!');
+      console.log('Had lucious locks!');
     }
   }
 ];
 var menu = Menu.buildFromTemplate(template);
-var tray = new Tray(path.join(__dirname, '../images/beer.png'));
-tray.setToolTip('Buy me a beer!');
+var tray = new Tray(path.join(__dirname, '../images/jason.png'));
+tray.setToolTip('Jason Bock!');
 tray.setContextMenu(menu);</pre>
 			<div class="container">
 				<button class="btn btn-default" type="submit" ng-click="show()">Show Menu</button>
