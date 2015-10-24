@@ -1,0 +1,92 @@
+<div class="container">
+
+	<div class="page-header">
+		<h1>Creating native addons.</h1>
+		<h4>Its possible to load native addons into electron through nodes built-in module loading features. It's typically more complciated than this but below is a simple example of how it can be done.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">binding.gyp</div>
+		<div class="panel-body">
+		<p>This is where python comes into play. Gyp is a python based build tool which will generate either platform specific compiler make files (e.g. make, vcxproj or xcode).</p>
+		<p>Gyp will also drive install compilers to build code for the given platform it is being run on.</p>
+		<p>To run gyp you need to create a file called <code>binding.gyp</code> with (at least) the following contents.</p>
+<pre>{
+  "targets": [
+    {
+      "target_name": "addon",
+      "sources": [ "src/hello.cc" ]
+    }
+  ]
+}</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">src/hello.cc</div>
+		<div class="panel-body">
+		<p>Here is an example of a very simple node addon. Node is heavily dependent on <code>v8</code> and <code>libuv</code>. Typically you would use a library called <code>Nan</code> to ease native addon development.</p>
+<pre>// hello.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void Method(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
+}
+
+void init(Local&lt;Object&gt; exports) {
+  NODE_SET_METHOD(exports, "hello", Method);
+}
+
+NODE_MODULE(addon, init)
+
+}  // namespace demo</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">package.json</div>
+		<div class="panel-body">
+		<p>Since we are building binaries for electron instead of node we need to add some extra information about which version of electron we want to use.</p>
+<pre>"engines": [ "electron": "^0.34.0" ]</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">index.html</div>
+		<div class="panel-body">
+		<p>We will add a binding to our html file to see the addons output.</p>
+<pre ng-non-bindable>&lt;p&gt;From native addon: {{message}}.&lt;/p&gt;</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">index.js</div>
+		<div class="panel-body">
+			<p>In our controller we will load the addon and set its output onto the scope for binding.</p>
+<pre>var addon = require('./build/Release/addon');
+$scope.message = addon.hello();</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">compiling</div>
+		<div class="panel-body">
+			<p>Finally we will install a tool to help us build binaries compatible with electron and then run our application once again.</p>
+<pre>$ npm install electron-updater-tools -g
+$ npm install electron-updater-tools --save
+$ elb configure
+$ electron .</pre>
+		</div>
+	</div>
+
+</div>

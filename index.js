@@ -20,6 +20,7 @@ angular
 	.controller('PowerController', require('./controllers/power'))
 	.controller('TrayController', require('./controllers/tray'))
 	.controller('ClipboardController', require('./controllers/clipboard'))
+	.controller('NativeController', require('./controllers/native'))
 	.config(require('./configs/router'))
 	.run(require('./configs/run'));
 	
