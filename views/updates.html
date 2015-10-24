@@ -1,0 +1,96 @@
+<div class="container">
+
+	<div class="page-header">
+		<h1>Auto Updates</h1>
+		<h4>This section is on how to deliever automatic updates to your applications.</h4>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">Built-in</div>
+		<div class="panel-body">
+			<p>The built-in auto-updater is based on Squirrel.</p>
+			<p>Unfortunately the built in auto-updater for electron is <strong>OS X only</strong>.</p>
+			<p>There is a windows implementation but it is completely different and requires different scripts and implementations for both platforms. There is no Squirrel solution for linux.</p>
+
+<pre>// In the main process
+var app = require('app');
+var autoUpdater = require('auto-updater');
+autoUpdater.setFeedUrl('http://mycompany.com/myapp/latest?version=' + app.getVersion());</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Methods</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>autoUpdater.setFeedUrl(url)</code></li>
+			<li class="list-group-item"><code>autoUpdater.checkForUpdates()</code></li>
+		</ul>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">Events</div>
+		<ul class="list-group">
+			<li class="list-group-item"><code>'error'</code></li>
+			<li class="list-group-item"><code>'checking-for-update'</code></li>
+			<li class="list-group-item"><code>'update-available'</code></li>
+			<li class="list-group-item"><code>'update-not-available'</code></li>
+			<li class="list-group-item"><code>'update-downlaoded'</code> - with <code>event.quitAndUpdate()</code></li>
+		</ul>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">electron-updater</div>
+		<div class="panel-body">
+			<p><code>electron-updater</code> is a 3rd party open source tool which does updates the same way for all platforms. It uses NPM as the server backend and is completely written in javascript.</p>
+			<p><a href="http://gihub.com/EvolveLabs/electron-updater">http://github.com/EvolveLabs/electron-updater</a></p>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">installation</div>
+		<div class="panel-body">		
+		<p>First we need to install all of the dependencies and tools.</p>
+<pre>$ npm install electron-updater --save
+$ npm install electron-updater-tools -g</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">main.js</div>
+		<div class="panel-body">		
+		<p>Next we will modify our main.js to include the <code>auto-updater</code> code.</p>
+<pre>var app = require('app'),
+    BrowserWindow = require('browser-window'),
+    updater = require('electron-updater')
+
+var mainWindow = null
+
+app.on('ready', function() {
+    updater.on('ready', function () {
+        mainWindow = new BrowserWindow({width: 800, height: 600})
+        mainWindow.loadUrl('file://' + __dirname + '/index.html')
+        mainWindow.openDevTools({detach:true})        
+        mainWindow.on('closed', function() {
+            mainWindow = null;
+        })
+    })
+    updater.on('updateRequired', function () {        
+        app.quit();
+    })
+    updater.on('updateAvailable', function () {
+        mainWindow.webContents.send('update-available');
+    })
+    updater.start()
+})</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">installation</div>
+		<div class="panel-body">		
+			<p>Then run like usual! The updater will udpate missing or out-of-date dependencies on launch and will send <code>'update-available'</code> events if the app is already running.</pre>
+			<pre>$ electron .</pre>
+		</div>
+	</div>
+
+</div>

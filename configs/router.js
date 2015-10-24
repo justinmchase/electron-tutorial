@@ -111,6 +111,10 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			url: '/deployment',
 			templateUrl: path.join(__dirname, '../views/deployment.html'),
 		})
+		.state('updates', {
+			url: '/updates',
+			templateUrl: path.join(__dirname, '../views/updates.html')
+		})
 }
 
 module.exports = routerConfig;
