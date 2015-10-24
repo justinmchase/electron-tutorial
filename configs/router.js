@@ -98,6 +98,10 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			url: '/other',
 			templateUrl: path.join(__dirname, '../views/other.html')
 		})
+		.state('debugging', {
+			url: '/debugging',
+			templateUrl: path.join(__dirname, '../views/debugging.html')
+		})
 }
 
 module.exports = routerConfig;
